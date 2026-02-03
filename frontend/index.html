@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentinel - Web Application Security Scanner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="shield-icon">🛡️</span>
+                <span class="logo-text">SENTINEL</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#guide" class="nav-link">Guide</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="hero-title">Web Application Security Scanner</h1>
+            <p class="hero-subtitle">Detect SQL Injection & XSS vulnerabilities with advanced automated scanning</p>
+            
+            <div class="scan-container">
+                <div class="input-group">
+                    <input 
+                        type="text" 
+                        id="targetUrl" 
+                        class="url-input" 
+                        placeholder="Enter target URL (e.g., http://localhost:3000)"
+                        autocomplete="off"
+                    >
+                    <button id="scanBtn" class="scan-btn">
+                        <span class="btn-text">Start Scan</span>
+                        <span class="btn-icon">🔍</span>
+                    </button>
+                </div>
+                
+                <div class="example-urls">
+                    <p>Example targets:</p>
+                    <button class="example-btn" onclick="setUrl('http://localhost:3000')">DVWA (Local)</button>
+                    <button class="example-btn" onclick="setUrl('http://localhost:3000/#/')">Juice Shop (Local)</button>
+                </div>
+            </div>
+
+            <!-- Status Display -->
+            <div id="statusSection" class="status-section hidden">
+                <div class="status-card">
+                    <div class="status-header">
+                        <h3>Scan Progress</h3>
+                        <span id="statusBadge" class="status-badge">Initializing...</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div id="progressFill" class="progress-fill"></div>
+                    </div>
+                    <div id="statusDetails" class="status-details"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section id="resultsSection" class="results-section hidden">
+        <div class="results-container">
+            <div class="results-header">
+                <h2>Scan Results</h2>
+                <div class="results-actions">
+                    <button id="downloadReportBtn" class="action-btn">
+                        📄 Download Report
+                    </button>
+                    <button id="newScanBtn" class="action-btn secondary">
+                        🔄 New Scan
+                    </button>
+                </div>
+            </div>
+
+            <!-- Summary Cards -->
+            <div id="summaryCards" class="summary-grid"></div>
+
+            <!-- Vulnerabilities List -->
+            <div id="vulnerabilitiesList" class="vulnerabilities-list"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="about-container">
+            <h2>About Sentinel</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-icon">🔍</div>
+                    <h3>Automated Scanning</h3>
+                    <p>Automatically crawls target websites and discovers potential attack surfaces</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">🎯</div>
+                    <h3>SQL Injection Detection</h3>
+                    <p>Tests for SQL injection vulnerabilities using proven attack payloads</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">⚡</div>
+                    <h3>XSS Detection</h3>
+                    <p>Identifies Cross-Site Scripting vulnerabilities in web applications</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">📊</div>
+                    <h3>Detailed Reports</h3>
+                    <p>Generates comprehensive HTML reports with remediation guidance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guide Section -->
+    <section class="guide-section" id="guide">
+        <div class="guide-container">
+            <h2>How to Use</h2>
+            <div class="guide-steps">
+                <div class="guide-step">
+                    <div class="step-number">1</div>
+                    <h3>Enter Target URL</h3>
+                    <p>Input the URL of the web application you want to scan. Ensure you have authorization to test.</p>
+                </div>
+                <div class="guide-step">
+                    <div class="step-number">2</div>
+                    <h3>Start Scan</h3>
+                    <p>Click "Start Scan" and wait while Sentinel crawls the site and tests for vulnerabilities.</p>
+                </div>
+                <div class="guide-step">
+                    <div class="step-number">3</div>
+                    <h3>Review Results</h3>
+                    <p>Examine discovered vulnerabilities with detailed information about each finding.</p>
+                </div>
+                <div class="guide-step">
+                    <div class="step-number">4</div>
+                    <h3>Download Report</h3>
+                    <p>Generate and download a professional HTML report for documentation and remediation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="warning">⚠️ <strong>WARNING:</strong> This tool is for educational purposes and authorized security testing only.</p>
+            <p class="copyright">© 2025 Sentinel Security Scanner | Built with Java Spring Boot</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
